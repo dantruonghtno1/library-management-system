@@ -104,14 +104,14 @@
                 }
            ?>
         </div> 
-        <div class="h"><a href="books.php">Books</a></div>
-        <div class="h"><a href="request.php">Book Request</a></div>
-        <div class="h"><a href="issue_info.php">Issue Information</a></div>
-        <div class="h"><a href="expired.php">Expired List</a></div>
+        <div class="h"><a href="books.php">Tủ sách</a></div>
+        <div class="h"><a href="request.php">Sách yêu cầu</a></div>
+        <div class="h"><a href="issue_info.php">Sách đã mượn</a></div>
+        <div class="h"><a href="expired.php">Sách quá hạn</a></div>
     </div>
 
     <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mở rộng</span>
     
 
     <script>
@@ -128,13 +128,13 @@
     
     <div class="container">
 
-    <h3 style="text-align: center;">Approve request</h3>
+    <h3 style="text-align: center;">Phê duyệt yêu cầu</h3>
 
     <form action="" class="Approve" method="post">
     <br><br>
         <input class="form-control" type="text" name="approve" placeholder="Yes or No" require=""><br>
-        <input class="form-control" type="text" name="issue" placeholder="Issue date yyyy-mm-dd" required=""><br>
-        <input class="form-control" type="text" name="return" placeholder="return date yyyy-mm-dd" required=""><br><br>
+        <input class="form-control" type="text" name="issue" placeholder="Ngày mượn: yyyy-mm-dd" required=""><br>
+        <input class="form-control" type="text" name="return" placeholder="Ngày trả: yyyy-mm-dd" required=""><br><br>
         <button class="btn btn-default" type="submit" name="submit" style="margin-right: 450px;">Approve</button>
     </form>
     </div>   

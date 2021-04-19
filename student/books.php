@@ -85,10 +85,10 @@
                 }
            ?>
         </div> 
-        <div class="h"><a href="books.php">Books</a></div>
-        <div class="h"><a href="request.php">Book Request</a></div>
-        <div class="h"><a href="issue_info.php">Issue Information</a></div>
-        <div class="h"><a href="expired.php">Expired List</a></div>
+        <div class="h"><a href="books.php">Giá sách</a></div>
+        <div class="h"><a href="request.php">Đang chờ duyệt</a></div>
+        <!-- <div class="h"><a href="issue_info.php">Issue Information</a></div> -->
+        <div class="h"><a href="expired.php">Quá hạn</a></div>
     </div>
 
     <div id="main">

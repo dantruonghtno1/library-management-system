@@ -101,14 +101,14 @@
                 }
            ?>
         </div> 
-        <div class="h"><a href="books.php">Books</a></div>
-        <div class="h"><a href="request.php">Book Request</a></div>
-        <div class="h"><a href="issue_info.php">Issue Information</a></div>
-        <div class="h"><a href="expired.php">Expired List</a></div>
+        <div class="h"><a href="books.php">Tủ sách</a></div>
+        <div class="h"><a href="request.php">Sách yêu cầu</a></div>
+        <div class="h"><a href="issue_info.php">Sách đã mượn</a></div>
+        <div class="h"><a href="expired.php">Sách quá hạn</a></div>
     </div>
 
     <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mở rộng</span>
     
 
     <script>
@@ -133,7 +133,7 @@
 
             </form>
         </div>
-    <h3>Request of Book</h3>
+    <h3>Sách chờ phê duyệt</h3>
     <?php 
         if(isset($_SESSION['login_user'])) {
             $sql = "SELECT student.username, roll,books.bid,name, authors, edition, status FROM student INNER JOIN issue_book ON student.username = issue_book.username INNER JOIN books ON issue_book.bid = books.bid WHERE issue_book.approve = ''";
@@ -141,7 +141,7 @@
             $res = mysqli_query($db, $sql);
             if(mysqli_num_rows($res) ==0) {
                 echo "<h2><b>";
-                echo "There's no pending request";
+                echo "Không có sách được yêu cầu.";
                 echo "</h2></b>";
             }
             else 
@@ -152,10 +152,10 @@
                     echo "<th>"; echo "Student username"; echo "</th>";
                     echo "<th>"; echo "Student ID"; echo "</th>";
                     echo "<th>"; echo "Bid"; echo "</th>";
-                    echo "<th>"; echo "Book Name"; echo "</th>";
-                    echo "<th>"; echo "Authors name"; echo "</th>";
-                    echo "<th>"; echo "Edition"; echo "</th>";
-                    echo "<th>"; echo "Status"; echo "</th>";
+                    echo "<th>"; echo "Tên sách"; echo "</th>";
+                    echo "<th>"; echo "Tên tác giả"; echo "</th>";
+                    echo "<th>"; echo "Phiên bản"; echo "</th>";
+                    echo "<th>"; echo "Trạng thái"; echo "</th>";
                 echo "</tr>";
         
                 while($row = mysqli_fetch_assoc(($res))) {
@@ -179,7 +179,7 @@
         {
             ?>  
             <br>
-                <h4  style="color: yellow;">You need to login to see request</h4>
+                <h4  style="color: yellow;">Bạn cần phải đăng nhập trước!</h4>
             <?php
         }
         if(isset($_POST['submit'])) {

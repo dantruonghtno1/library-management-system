@@ -17,14 +17,14 @@
   float: left;
   width: 40%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 550px; /* Should be removed. Only for demonstration */
   border: 2px solid #aa1f1f;
 }
 .column2 {
   float: left;
   width: 40%;
   padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 550px; /* Should be removed. Only for demonstration */
   
 }
 
@@ -37,8 +37,9 @@
 .bookphoto{
     float: left;
     width: 100%;
-    padding: 10px;
-    height: 500px;
+    padding: 0px;
+    padding-top: -5px;
+    height: 530px;
 }
 .column2 {
     padding-right: 30px;
@@ -213,8 +214,20 @@ input[type=submit]:hover {
 <h2></h2>
 <div style="padding: 50px; padding-left:300px;">
    <div class="row">
+
+
     <div class="column column1" style="background-color:#aaa;">
-        <img class="bookphoto" src="./images/avata.jpg" alt="">
+        <?php
+            include "connection.php";
+            $count = 0;
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM `books` where bid = '$id'";
+            $query = mysqli_query($db, $sql);
+            while($row = mysqli_fetch_assoc(($query))){
+               echo "<img class='bookphoto' src=$row[img_path] alt=''>" ;
+            }
+        ?>
+        <!-- <img class="bookphoto" src="./images/avata.jpg" alt=""> -->
     </div>
     <div class="column column2" style="background-color:white;" >
         <div style="padding-left: 100px; font-size:20px; border-color: coral;"> 
@@ -250,8 +263,8 @@ input[type=submit]:hover {
     <?php
         if(isset($_POST['submit1'])) {
             if(isset($_SESSION['login_user'])) {
-                $sql = "INSERT INTO `issue_book` VALUES ('$_SESSION[login_user]','$id','','','')";
-                mysqli_query($db, $sql);
+                $sql1 = "INSERT INTO `issue_book` VALUES ('$_SESSION[login_user]','$id','','','')";
+                mysqli_query($db, $sql1);
                 ?>
                     <script type="text/javascript">
                         window.location="request.php"
@@ -282,10 +295,10 @@ input[type=submit]:hover {
             
 
             <?php
-                $sq = "SELECT * FROM comments";
+                $sq = "SELECT * FROM comments where bid = $id";
                 $lines = mysqli_query($db, $sq);
                 if(mysqli_num_rows($lines) == 0) {
-                    echo "Chưa có bình luận nào!";
+                    echo "<h1>Chưa có bình luận nào!</h1>";
                 }
                 else {
                     while($line = mysqli_fetch_assoc($lines)) {

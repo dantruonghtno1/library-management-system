@@ -83,14 +83,14 @@
                 }
            ?>
         </div> 
-        <div class="h"><a href="books.php">Books</a></div>
-        <div class="h"><a href="request.php">Book Request</a></div>
-        <div class="h"><a href="issue_info.php">Issue Information</a></div>
-        <div class="h"><a href="expired.php">Expired List</a></div>
+        <div class="h"><a href="books.php">Giá sách</a></div>
+        <div class="h"><a href="request.php">Đang chờ duyệt</a></div>
+        <!-- <div class="h"><a href="issue_info.php">Issue Information</a></div> -->
+        <div class="h"><a href="expired.php">Quá hạn List</a></div>
     </div>
 
     <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mở rộng</span>
     
 
     <script>
@@ -113,21 +113,22 @@
                         echo "Ban chua muon cuon nao";
                     }
                     else {
-                        echo "<table class='table table-bordered table-hover' >";
-                        echo "<tr style = 'background-color: #6db6b9e6; '>";
+                        echo "<table class='table table-bordered table-hover' style='text-align: center;' >";
+                        echo "<tr style = 'background-color: #6db6b9e6; style='text-align: center;'>";
                 
-                            echo "<th>"; echo "Books- ID"; echo "</th>";
-                            echo "<th>"; echo "Approve Status"; echo "</th>";
-                            echo "<th>"; echo "Issue Date"; echo "</th>";
-                            echo "<th>"; echo "Return"; echo "</th>";
+                            echo "<th>"; echo "<div style='text-align: center;'>Books- ID</div>"; echo "</th>";
+                            echo "<th>"; echo "<div style='text-align: center;'>Trạng Thái</div>"; echo "</th>";
+                            echo "<th>"; echo "<div style='text-align: center;'>Ngày yêu cầu</div>"; echo "</th>";
+                            echo "<th>"; echo "<div style='text-align: center;'>Ngày trả</div>"; echo "</th>";
                         echo "</tr>";
                 
                         while($row = mysqli_fetch_assoc(($q))) {
                             echo "<tr>";
                                 echo "<td>"; echo $row['bid']; echo "</td>";
-                                echo "<td>"; echo $row['approve']; echo "</td>";
-                                echo "<td>"; echo $row['issue']; echo "</td>";
-                                echo "<td>"; echo $row['return']; echo "</td>";
+                                // echo "<td>"; echo $row['approve']; echo "</td>";
+                                echo "<td>"; echo "<div style='text-align: center;'><b>Đang chờ phê duyệt!</b><div>"; echo "</td>";
+                                echo "<td>"; echo "--/--/----"; echo "</td>";
+                                echo "<td>"; echo "--/--/----"; echo "</td>";
                             echo "</tr>";
                 
                         }

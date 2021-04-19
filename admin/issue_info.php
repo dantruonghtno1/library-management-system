@@ -106,15 +106,15 @@
                 }
            ?>
         </div> 
-        <div class="h"><a href="books.php">Books</a></div>
-        <div class="h"><a href="request.php">Book Request</a></div>
-        <div class="h"><a href="issue_info.php">Issue Information</a></div>
-        <div class="h"><a href="expired.php">Expired List</a></div>
+        <div class="h"><a href="books.php">Tủ sách</a></div>
+        <div class="h"><a href="request.php">Sách yêu cầu</a></div>
+        <div class="h"><a href="issue_info.php">Sách đã mượn</a></div>
+        <div class="h"><a href="expired.php">Sách quá hạn</a></div>
     
     </div>
 
     <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mở rộng</span>
     
 
     <script>
@@ -129,10 +129,51 @@
         }
     </script>
     <div class="container">
-        <h2 style="text-align: center;">Informatioh of Borrowed Books</h2>
+        <h2 style="text-align: center;">Thông tin sách đã cho mượn</h2>
         <?php
             $c = 0;
             if(isset($_SESSION['login_user'])){
+                ?>
+                    <div class = "srch">
+                        <form action=""  method="post">
+                        <br>
+                            <input type="text" name="username" class="form-control" placeholder="Username" required=""> <br>
+                            <input type="text" name="bid" class="form-control" placeholder="BID" required=""><br>
+                            <button class="btn btn-default" name="submit" type="submit">Submit</button>
+
+                        </form>
+                    </div>
+                    <br>
+                <?php
+                // code tra sach
+                if(isset($_POST['submit'])) {
+                    $day = 0;
+                    $fine = 0;
+
+                    $res = mysqli_query($db, "SELECT * FROM issue_book WHERE username = '$_POST[username]'  and bid = '$_POST[bid]'");
+                    while($row = mysqli_fetch_assoc($res)){
+                        $d = strtotime($row['return']);
+                        $c = strtotime(date("Y-m-d"));
+                        $diff = $c - $d;
+                        if ($diff >= 0) {
+                            $day = floor($diff/(60*60*24));
+                            $fine = $day * 5000;
+                        }
+
+                    }
+                    $x = date("Y-m-d");
+                    mysqli_query($db, "INSERT INTO fine VALUES('$_POST[username]','$_POST[bid]','$x','$day','$fine', 'not paid')");
+                    $var1='<p style="color:yellow; background-color:green;">RETURNED</p>';
+                    $sql="UPDATE issue_book SET approve='$var1' where username = '$_POST[username]' and bid = $_POST[bid]";
+                    $res = mysqli_query($db, $sql);
+                    mysqli_query($db, "UPDATE books set quantity = quantity + 1 where bid ='$_POST[bid]'");
+                }
+
+
+                // code tra sach
+
+
+
                 $sql="SELECT student.username,roll,books.bid,name,authors,edition,issue,issue_book.return FROM student inner join issue_book ON student.username=issue_book.username inner join books ON issue_book.bid=books.bid WHERE issue_book.approve ='Yes' ORDER BY `issue_book`.`return` ASC";
                 $res = mysqli_query($db, $sql);
                 
@@ -148,13 +189,13 @@
                     echo "<tr style = 'background-color: #6db6b9e6; '>";
             
                         echo "<th>"; echo "Student username"; echo "</th>";
-                        echo "<th>"; echo "Roll"; echo "</th>";
+                        // echo "<th>"; echo "Roll"; echo "</th>";
                         echo "<th>"; echo "Bid"; echo "</th>";
-                        echo "<th>"; echo "Book Name"; echo "</th>";
-                        echo "<th>"; echo "Authors name"; echo "</th>";
-                        echo "<th>"; echo "Edition"; echo "</th>";
-                        echo "<th>"; echo "Issue date"; echo "</th>";
-                        echo "<th>"; echo "Return date"; echo "</th>";
+                        echo "<th>"; echo "Tên sách"; echo "</th>";
+                        echo "<th>"; echo "Tên tác giả"; echo "</th>";
+                        echo "<th>"; echo "Phiên bản"; echo "</th>";
+                        echo "<th>"; echo "Ngày mượn"; echo "</th>";
+                        echo "<th>"; echo "Ngày trả"; echo "</th>";
                     echo "</tr>";
 
                     while ($row = mysqli_fetch_assoc($res)) {
@@ -167,11 +208,11 @@
                 
                           mysqli_query($db,"UPDATE issue_book SET approve='$var' where `return`='$row[return]' and approve='Yes' limit $c;");
                           
-                          echo $d."</br>";
+                        //   echo $d."</br>";
                         }
                         echo "<tr>";
                             echo "<td>"; echo $row['username']; echo "</td>";
-                            echo "<td>"; echo $row['roll']; echo "</td>";
+                            // echo "<td>"; echo $row['roll']; echo "</td>";
                             echo "<td>"; echo $row['bid']; echo "</td>";
                             echo "<td>"; echo $row['name']; echo "</td>";
                             echo "<td>"; echo $row['authors']; echo "</td>";
@@ -187,7 +228,7 @@
             }
             else {
                 ?>
-                    <h3 style="text-align: center;">Login to see information of borrowed books</h3>
+                    <h3 style="text-align: center;">Đăng nhập để xem thông tin sách đã cho mượn</h3>
 
 
                 <?php

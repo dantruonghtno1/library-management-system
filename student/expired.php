@@ -107,15 +107,15 @@
                 }
            ?>
         </div> 
-        <div class="h"><a href="books.php">Books</a></div>
-        <div class="h"><a href="request.php">Book Request</a></div>
-        <div class="h"><a href="issue_info.php">Issue Information</a></div>
-        <div class="h"><a href="expired.php">Expired List</a></div>
+        <div class="h"><a href="books.php">Tủ sách</a></div>
+        <div class="h"><a href="request.php">Đang chở duyệt</a></div>
+        <!-- <div class="h"><a href="issue_info.php">Issue Information</a></div> -->
+        <div class="h"><a href="expired.php">Quá hạn</a></div>
     
     </div>
 
     <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mở rộng</span>
     
 
     <script>
@@ -130,7 +130,7 @@
         }
     </script>
     <div class="container">
-        <h2 style="text-align: center;">Expired</h2>
+        <h2 style="text-align: center;">Danh sách sách quá hạn</h2>
         <?php
             $c = 0;
             if(isset($_SESSION['login_user'])){
@@ -144,7 +144,7 @@
                             }
                             $var2 = $var + $_SESSION['fine'];
                         ?>
-                        <h3> Your fine is:
+                        <h3> Tiền phạt của bạn:
                             <?php
                                 echo $var2." VND";
                             ?> 

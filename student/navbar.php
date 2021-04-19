@@ -41,6 +41,9 @@
                         <ul class="nav navbar-nav">
                             <li><a href="profile.php">HỒ SƠ</a></li>
                             <li><a href="fine.php">TIỀN PHÍ</a></li>
+                            <li><a href="chart.php">SÁCH HAY</a></li>
+                            <li><a href="request.php">ĐANG CHỜ DUYỆT</a></li>
+                            <li><a href="expired.php">QUÁ HẠN</a></li>
                         </ul>
 
                    

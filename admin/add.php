@@ -108,17 +108,18 @@
                 }
            ?>
         </div> 
-        <div class="h"><a href="add.php">Add Books</a></div>
-        <div class="h"><a href="delete.php">Delete Books</a></div>
-        <div class="h"><a href="#">Book Request</a></div>
-        <div class="h"><a href="#">Issue Ifnormation</a></div>
+        <div class="h"><a href="add.php">Thêm sách</a></div>
+        <!-- <div class="h"><a href="delete.php">Xóa sách</a></div> -->
+        <div class="h"><a href="request.php">Sách yêu cầu</a></div>
+        <div class="h"><a href="issue_info.php">Sách đã mượn</a></div>
+        <div class="h"><a href="expired.php">Sách quá hạn</a></div>
     </div>
 
     <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Mở rộng</span>
         <div class="container"  style="text-align: center;">
             <h2 style="color: black; text-align:center;">
-                Add New Book.
+                Thêm sách mới.
             </h2>
             <form action="" method="POST" class="book">
                 <input type="text" name="bid" class="form-control" placeholder="Book id" required=""><br>
@@ -127,14 +128,15 @@
                 <input type="text" name="edition" class="form-control" placeholder="Edition " required=""><br>
                 <input type="text" name="status" class="form-control" placeholder="Status " required=""><br>
                 <input type="text" name="quantity" class="form-control" placeholder="Quantity" required=""><br>
-                <input type="text" name="department" class="form-control" placeholder="Department" required=""><br><br>
+                <input type="text" name="department" class="form-control" placeholder="Department" required=""><br>
+                <input type="text" name="imgbook" class="form-control" placeholder="Image" required=""><br><br>
                 <button class="btn btn-default button_" type="submit" name="submit">ADD</button>
             </form>
         </div>
         <?php
             if(isset($_POST['submit'] )){
                 if(isset($_SESSION['login_user'])){
-                    $sql = "INSERT INTO `books`VALUES ('$_POST[bid]','$_POST[name]','$_POST[authors]','$_POST[edition]','$_POST[status]','$_POST[quantity]','$_POST[department]')";
+                    $sql = "INSERT INTO `books`VALUES ('$_POST[bid]','$_POST[name]','$_POST[authors]','$_POST[edition]','$_POST[status]','$_POST[quantity]','$_POST[department]', '$_POST[imgbook]')";
                     mysqli_query($db, $sql);
                     ?>
                         <script type="text/javascript">
@@ -145,7 +147,7 @@
                 else {
                     ?>
                         <script type="text/javascript">
-                            alert("Ban chua dang nhap.")
+                            alert("Bạn chưa đăng nhập.")
                         </script>
                     <?php
                 }
