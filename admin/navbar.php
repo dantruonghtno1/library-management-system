@@ -42,8 +42,19 @@
                         <li><a href="student.php"> 
                             SINH VIÊN
                         </a></li>
-                        <li><a href="fine.php"> 
+                        <!-- <li><a href="fine.php"> 
                             TIỀN PHÍ
+                        </a></li> -->
+                        <li><a href="request.php"> 
+                            SÁCH YÊU CẦU
+                        </a></li>
+
+                        <li><a href="issue_info.php"> 
+                            SÁCH ĐÃ MƯỢN
+                        </a></li>
+
+                        <li><a href="expired.php"> 
+                            SÁCH QUÁ HẠN
                         </a></li>
                     </ul>
                    

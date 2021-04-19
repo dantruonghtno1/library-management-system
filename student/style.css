@@ -202,7 +202,7 @@ form .login {
 .reg_img {
     height: 700px;
     margin-top: 0PX;
-    background-image: url("./images/4.png");
+    /* background-image: url("./images/4.png"); */
 }
 
 .box2 {

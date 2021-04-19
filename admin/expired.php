@@ -81,9 +81,9 @@
         }
         .container {
             height: 700px;
-            background-color: black;
-            color: white;
-            opacity: 0.8;
+            background-color: white;
+            color: black;
+            /* opacity: 0.8; */
             text-align: center;
         }
         .scroll {
@@ -162,6 +162,14 @@
                     $sql="UPDATE issue_book SET approve='$var1' where username = '$_POST[username]' and bid = $_POST[bid]";
                     $res = mysqli_query($db, $sql);
                     mysqli_query($db, "UPDATE books set quantity = quantity + 1 where bid ='$_POST[bid]'");
+
+                    
+                    ?>
+                        <script type="text/javascript">
+                            alert("Số tiền phạt bạn phải trả là: " + String.valueOf($fine) + "VNĐ!")
+                            window.location= "index.php"
+                        </script>
+                    <?php
                 }
             }
         ?>
@@ -176,38 +184,51 @@
                 
                 if(mysqli_num_rows($res) == 0) {
                     echo "<h2><b>";
-                    echo "Chưa có cuốn nào được mượn.s";
+                    echo "Chưa có cuốn nào được mượn.";
                     echo "</h2></b>";
                 }
                 else{
+
+
                     echo "<div class = 'scroll'>";
                     echo "<table class='table table-bordered table-hover' >";
                     
                     echo "<tr style = 'background-color: #6db6b9e6; '>";
             
-                        echo "<th>"; echo "Student username"; echo "</th>";
+                        echo "<th>"; echo "Student Username"; echo "</th>";
                         // echo "<th>"; echo "Roll"; echo "</th>";
-                        echo "<th>"; echo "Bid"; echo "</th>";
+                        echo "<th>"; echo "ID Sách"; echo "</th>";
                         echo "<th>"; echo "Tên sách"; echo "</th>";
                         echo "<th>"; echo "Tác giả"; echo "</th>";
-                        echo "<th>"; echo "Phiên bản"; echo "</th>";
+                        // echo "<th>"; echo "Phiên bản"; echo "</th>";
                         echo "<th>"; echo "Trạng thái"; echo "</th>";
                         echo "<th>"; echo "Ngày mượn"; echo "</th>";
-                        echo "<th>"; echo "Ngày trả"; echo "</th>";
+                        echo "<th>"; echo "Ngày phải trả"; echo "</th>";
+                        echo "<th>"; echo "Tiền phạt"; echo "</th>";
                     echo "</tr>";
 
                     while ($row = mysqli_fetch_assoc($res)) {
-                       
+
+                        $d = strtotime($row['return']);
+                        $c = strtotime(date("Y-m-d"));
+                        $diff = $c - $d;
+                        if ($diff >= 0) { 
+                            $day = floor($diff/(60*60*24));
+                            $fine = $day * 5000;
+                            
+                        }
+
                         echo "<tr>";
                             echo "<td>"; echo $row['username']; echo "</td>";
                             // echo "<td>"; echo $row['roll']; echo "</td>";
                             echo "<td>"; echo $row['bid']; echo "</td>";
                             echo "<td>"; echo $row['name']; echo "</td>";
                             echo "<td>"; echo $row['authors']; echo "</td>";
-                            echo "<td>"; echo $row['edition']; echo "</td>";
+                            // echo "<td>"; echo $row['edition']; echo "</td>";
                             echo "<td>"; echo $row['approve']; echo "</td>";
                             echo "<td>"; echo $row['issue']; echo "</td>";
                             echo "<td>"; echo $row['return']; echo "</td>";
+                            echo "<td>"; echo $fine; echo "</td>";
 
                         echo "</tr>";                        
                     }

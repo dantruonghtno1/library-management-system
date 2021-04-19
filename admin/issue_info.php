@@ -139,7 +139,7 @@
                         <br>
                             <input type="text" name="username" class="form-control" placeholder="Username" required=""> <br>
                             <input type="text" name="bid" class="form-control" placeholder="BID" required=""><br>
-                            <button class="btn btn-default" name="submit" type="submit">Submit</button>
+                            <button class="btn btn-default" name="submit" type="submit">Trả sách</button>
 
                         </form>
                     </div>
@@ -174,12 +174,12 @@
 
 
 
-                $sql="SELECT student.username,roll,books.bid,name,authors,edition,issue,issue_book.return FROM student inner join issue_book ON student.username=issue_book.username inner join books ON issue_book.bid=books.bid WHERE issue_book.approve ='Yes' ORDER BY `issue_book`.`return` ASC";
+                $sql="SELECT student.username,roll,books.bid,name,authors,edition,issue,issue_book.return FROM student inner join issue_book ON student.username=issue_book.username inner join books ON issue_book.bid=books.bid WHERE issue_book.approve ='Yes'  ORDER BY `issue_book`.`return` ASC";
                 $res = mysqli_query($db, $sql);
                 
                 if(mysqli_num_rows($res) == 0) {
                     echo "<h2><b>";
-                    echo "There's no books borrowed";
+                    echo "Chưa có cuốn nào được mượn.";
                     echo "</h2></b>";
                 }
                 else{
@@ -190,10 +190,10 @@
             
                         echo "<th>"; echo "Student username"; echo "</th>";
                         // echo "<th>"; echo "Roll"; echo "</th>";
-                        echo "<th>"; echo "Bid"; echo "</th>";
+                        echo "<th>"; echo "ID sách"; echo "</th>";
                         echo "<th>"; echo "Tên sách"; echo "</th>";
                         echo "<th>"; echo "Tên tác giả"; echo "</th>";
-                        echo "<th>"; echo "Phiên bản"; echo "</th>";
+                        // echo "<th>"; echo "Phiên bản"; echo "</th>";
                         echo "<th>"; echo "Ngày mượn"; echo "</th>";
                         echo "<th>"; echo "Ngày trả"; echo "</th>";
                     echo "</tr>";
@@ -216,7 +216,7 @@
                             echo "<td>"; echo $row['bid']; echo "</td>";
                             echo "<td>"; echo $row['name']; echo "</td>";
                             echo "<td>"; echo $row['authors']; echo "</td>";
-                            echo "<td>"; echo $row['edition']; echo "</td>";
+                            // echo "<td>"; echo $row['edition']; echo "</td>";
                             echo "<td>"; echo $row['issue']; echo "</td>";
                             echo "<td>"; echo $row['return']; echo "</td>";
 

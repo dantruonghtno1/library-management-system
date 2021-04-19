@@ -71,7 +71,7 @@
                     </script> -->
                     <div class="alert alert-danger">
                         <strong>
-                            the user name don't have
+                            Người dùng không tồn tại.
                         </strong>
                     </div>
                 <?php

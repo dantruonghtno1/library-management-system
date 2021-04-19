@@ -129,7 +129,7 @@
 
     <!-- <h2>List of books</h2> -->
     <?php
-        if(true) {
+        if(isset($_POST['submit'])) {
             include "connection.php";
             $sql= "SELECT * FROM `books` where name like '%$_POST[search]%'";
             $q = mysqli_query($db, $sql);

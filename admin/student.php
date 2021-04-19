@@ -85,10 +85,10 @@
            ?>
         </div> 
         
-        <div class="h"><a href="books.php">Books</a></div>
-        <div class="h"><a href="request.php">Book Request</a></div>
-        <div class="h"><a href="issue_info.php">Issue Ifnormation</a></div>
-        <div class="h"><a href="expired.php">Expired List</a></div>
+        <div class="h"><a href="books.php">Tủ sách</a></div>
+        <div class="h"><a href="request.php">Sách yêu cầu</a></div>
+        <div class="h"><a href="issue_info.php">Sách đã mượn</a></div>
+        <div class="h"><a href="expired.php">Sách quá hạn</a></div>
     </div>
 
     <div id="main">
@@ -121,7 +121,7 @@
 
     <!-- <h2>List of students</h2> -->
     <?php
-        if(true) {
+        if(isset($_POST['submit'])) {
             include "connection.php";
             $sql= "SELECT first,last,username,roll,email,contact FROM `student` where username like '%$_POST[search]%';";
             $q = mysqli_query($db, $sql);

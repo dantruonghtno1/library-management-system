@@ -85,10 +85,10 @@
            ?>
         </div> 
         
-        <div class="h"><a href="books.php">Giá sách</a></div>
+        <div class="h"><a href="books.php">Tủ sách</a></div>
         <div class="h"><a href="request.php">Đang chờ duyệt</a></div>
-        <!-- <div class="h"><a href="issue_info.php">Issue Ifnormation</a></div> -->
-        <div class="h"><a href="expired.php">Quá hạn</a></div>
+        <div class="h"><a href="issue_info.php">Sách đang mượn</a></div>
+        <div class="h"><a href="expired.php">Sách quá hạn</a></div>
     </div>
 
     <div id="main">
@@ -107,6 +107,10 @@
         }
     </script>
 
+    <div>
+        <h1 style="text-align: center;">Tiền phí bạn đã trả</h1><br>
+    </div>
+
     <?php
         
 
@@ -120,22 +124,22 @@
             echo "<table class='table table-bordered table-hover' >";
             echo "<tr style = 'background-color: #6db6b9e6; '>";
     
-                echo "<th>";echo " User Name"; echo "</th>";
+                // echo "<th>";echo " User Name"; echo "</th>";
                 echo "<th>"; echo " ID sách"; echo "</th>";
                 echo "<th>"; echo " Ngày trả"; echo "</th>";
                 echo "<th>"; echo " Số ngày mượn"; echo "</th>";
                 echo "<th>"; echo " Phí"; echo "</th>";
-                echo "<th>"; echo " Trạng thái"; echo "</th>";
+                // echo "<th>"; echo " Trạng thái"; echo "</th>";
             echo "</tr>";
     
             while($row = mysqli_fetch_assoc(($query))) {
                 echo "<tr>";
-                    echo "<td>"; echo $row['username']; echo "</td>";
+                    // echo "<td>"; echo $row['username']; echo "</td>";
                     echo "<td>"; echo $row['bid']; echo "</td>";
                     echo "<td>"; echo $row['returned']; echo "</td>";
                     echo "<td>"; echo $row['day']; echo "</td>";
                     echo "<td>"; echo $row['fine']; echo "</td>";
-                    echo "<td>"; echo $row['status']; echo "</td>";
+                    // echo "<td>"; echo $row['status']; echo "</td>";
     
                 echo "</tr>";
     

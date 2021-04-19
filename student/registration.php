@@ -31,11 +31,11 @@
             <br>
             <div class="box2">
                 <h1 style="text-align: center; font-size: 35px;"> 
-                    Libarary Management System
-                </h1> 
-                <h1 style="text-align: center; font-size: 25px;" >
-                    User registration Form
+                    Đăng ký thành viên mới
                 </h1> <br>
+                <!-- <h1 style="text-align: center; font-size: 25px;" >
+                    User registration Form
+                </h1> <br> -->
 
                 <form name="registration" action="" method="post">
                     <div class="login">
@@ -73,7 +73,7 @@ if(isset($_POST['submit']))
     mysqli_query($db,"INSERT INTO `STUDENT` VALUES('$_POST[first]', '$_POST[last]', '$_POST[username]', '$_POST[password]', '$_POST[roll]', '$_POST[email]', '$_POST[contact]');");
   ?>
     <script type="text/javascript">
-     alert("Registration successful");
+     alert("Đăng ký thành công!");
     </script>
   <?php
   }
@@ -82,7 +82,7 @@ if(isset($_POST['submit']))
 
     ?>
       <script type="text/javascript">
-        alert("The username already exist.");
+        alert("Tài khoản đã tồn tại!");
       </script>
     <?php
 

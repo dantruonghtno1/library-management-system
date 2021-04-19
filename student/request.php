@@ -85,8 +85,8 @@
         </div> 
         <div class="h"><a href="books.php">Giá sách</a></div>
         <div class="h"><a href="request.php">Đang chờ duyệt</a></div>
-        <!-- <div class="h"><a href="issue_info.php">Issue Information</a></div> -->
-        <div class="h"><a href="expired.php">Quá hạn List</a></div>
+        <div class="h"><a href="issue_info.php">Sách đang mượn </a></div>
+        <div class="h"><a href="expired.php">Sách quá hạn</a></div>
     </div>
 
     <div id="main">
@@ -104,19 +104,22 @@
         document.getElementById("main").style.marginLeft= "0";
         }
     </script>
+    <div>
+        <h1 style="text-align: center;"><b>Sách đang gửi yêu cầu mượn.</b></h1><br>
+    </div>
     <?php
                 if(isset($_SESSION['login_user'])) {
                     include "connection.php";
                     $sql= "SELECT * FROM `issue_book` where username ='$_SESSION[login_user]' and approve = ''";
                     $q = mysqli_query($db, $sql);
                     if(mysqli_num_rows($q) ==0) {
-                        echo "Ban chua muon cuon nao";
+                        echo "<br><br><br><h1><b>Bạn chưa yêu cầu mượn cuốn nào</b></h1>";
                     }
                     else {
                         echo "<table class='table table-bordered table-hover' style='text-align: center;' >";
                         echo "<tr style = 'background-color: #6db6b9e6; style='text-align: center;'>";
                 
-                            echo "<th>"; echo "<div style='text-align: center;'>Books- ID</div>"; echo "</th>";
+                            echo "<th>"; echo "<div style='text-align: center;'>ID Sách</div>"; echo "</th>";
                             echo "<th>"; echo "<div style='text-align: center;'>Trạng Thái</div>"; echo "</th>";
                             echo "<th>"; echo "<div style='text-align: center;'>Ngày yêu cầu</div>"; echo "</th>";
                             echo "<th>"; echo "<div style='text-align: center;'>Ngày trả</div>"; echo "</th>";

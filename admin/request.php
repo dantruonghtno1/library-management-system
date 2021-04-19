@@ -80,7 +80,7 @@
             background-color: red;
         }
         .container {
-            height: 700px;
+            height: 1000px;
             background-color: black;
             color: white;
             opacity: 0.8;
@@ -150,7 +150,7 @@
                 echo "<tr style = 'background-color: #6db6b9e6; '>";
         
                     echo "<th>"; echo "Student username"; echo "</th>";
-                    echo "<th>"; echo "Student ID"; echo "</th>";
+                    // echo "<th>"; echo "Student ID"; echo "</th>";
                     echo "<th>"; echo "Bid"; echo "</th>";
                     echo "<th>"; echo "Tên sách"; echo "</th>";
                     echo "<th>"; echo "Tên tác giả"; echo "</th>";
@@ -161,7 +161,7 @@
                 while($row = mysqli_fetch_assoc(($res))) {
                     echo "<tr>";
                         echo "<td>"; echo $row['username']; echo "</td>";
-                        echo "<td>"; echo $row['roll']; echo "</td>";
+                        // echo "<td>"; echo $row['roll']; echo "</td>";
                         echo "<td>"; echo $row['bid']; echo "</td>";
                         echo "<td>"; echo $row['name']; echo "</td>";
                         echo "<td>"; echo $row['authors']; echo "</td>";
