@@ -13,7 +13,7 @@ Website quản lý thư viện là trang web hỗ trợ sinh viên truy cập v�
       * Đăng nhập
       * Đăng ký
       * Sửa đổi thông tin cá nhân, mật khẩu...
-      * Hiển thị tủ sách, thông tin sách
+      * Hiển thị tủ sách, thông tin sách, tìm kiếm sách
   
   
    2. ### Sinh viên:
@@ -27,7 +27,7 @@ Website quản lý thư viện là trang web hỗ trợ sinh viên truy cập v�
       * Xem lịch sử sách đã mượn
    
    3. ### Người quản lý thư viện (Admin):
-      * Xem thông tin cá nhân của sinh viên (Ngoại trừ mật khẩu)
+      * Xem thông tin cá nhân của sinh viên (Ngoại trừ mật khẩu), tìm kiếm sinh viên
       * Xem danh sách những cuốn sách đã mượn 
       * Chấp nhận yêu cầu đề nghị mượn sách của sinh viên, thêm yêu cầu đó vào danh sách sách đã mượn
       * Thêm sách
