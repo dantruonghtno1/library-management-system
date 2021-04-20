@@ -50,4 +50,4 @@ Website quản lý thư viện là trang web hỗ trợ sinh viên truy cập v�
       
 ## Mô hình thực thể ER
 
-![alt text](https://github.com/dantruonghtno1/library-management-system/blob/master/ER_uetlibrary.png)
+![alt text](https://github.com/dantruonghtno1/library-management-system/blob/master/ER_official.png)
