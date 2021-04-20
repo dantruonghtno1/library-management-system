@@ -359,7 +359,7 @@ input[type=submit]:hover {
             <?php
                 if(isset($_POST['submit'])) {
                     include "connection.php";
-                    $sql = "INSERT INTO comments  VALUES ('$_POST[namecmt]','$id','$_POST[cmt]')";
+                    $sql = "INSERT INTO comments  VALUES ('$_POST[namecmt]','$id','$_POST[cmt]', '')";
                     mysqli_query($db, $sql);
                     ?>
                         <script type="text/javascript">

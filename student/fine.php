@@ -127,7 +127,7 @@
                 // echo "<th>";echo " User Name"; echo "</th>";
                 echo "<th>"; echo " ID sách"; echo "</th>";
                 echo "<th>"; echo " Ngày trả"; echo "</th>";
-                echo "<th>"; echo " Số ngày mượn"; echo "</th>";
+                echo "<th>"; echo " Số ngày quá hạn"; echo "</th>";
                 echo "<th>"; echo " Phí"; echo "</th>";
                 // echo "<th>"; echo " Trạng thái"; echo "</th>";
             echo "</tr>";

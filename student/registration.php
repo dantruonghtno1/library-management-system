@@ -2,7 +2,6 @@
     include "connection.php";
     include "navbar.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +19,20 @@
        <!-- Latest compiled JavaScript -->
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
        <style>
-        section {
-            margin-top: -20px;
-        }
-    </style>
+          section {
+              margin-top: -20px;
+          }
+          .reg_img {
+              height: 700px;
+              margin-top: 0PX;
+          }
+        </style>
+        <style>
+            .reg_img {
+              height: 700px;
+              margin-top: 0PX;
+            }
+        </style>
     </head>
     <body>
     <section>
