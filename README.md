@@ -42,7 +42,6 @@ Website quản lý thư viện là trang web hỗ trợ sinh viên truy cập v�
       
       * Python (Machine learning for sentiment analysis)
       
-      * Smoothing
       
       
 ## Nhóm phát triển:
@@ -54,5 +53,4 @@ Website quản lý thư viện là trang web hỗ trợ sinh viên truy cập v�
 
 
 ## Tư liệu tham khảo:
-   1. Additive smoothing (also called Laplace smoothing): https://en.wikipedia.org/wiki/Additive_smoothing
-   2. Logistic regression: https://web.stanford.edu/class/archive/cs/cs109/cs109.1176/lectures/23-LogisticRegression.pdf
+   1. Logistic regression: https://web.stanford.edu/class/archive/cs/cs109/cs109.1176/lectures/23-LogisticRegression.pdf
