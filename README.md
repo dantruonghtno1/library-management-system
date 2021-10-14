@@ -40,7 +40,7 @@ Website quản lý thư viện là trang web hỗ trợ sinh viên truy cập v�
       
       * HTML/CSS
       
-      * Python (Machine learning for sentiment analysis)
+
       
       
       
@@ -52,5 +52,3 @@ Website quản lý thư viện là trang web hỗ trợ sinh viên truy cập v�
 ![alt text](https://github.com/dantruonghtno1/library-management-system/blob/master/ER_official.png)
 
 
-## Tư liệu tham khảo:
-   1. Logistic regression: https://web.stanford.edu/class/archive/cs/cs109/cs109.1176/lectures/23-LogisticRegression.pdf
